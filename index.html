@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="es">
+<head>
+<!-- GOOGLE ANALYTICS AQUÍ -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BetUni · Proyecto académico</title>
+<meta name="description" content="BetUni es una marca ficticia creada para un taller de Marketing Analytics. No existe ni ofrece servicios reales.">
+<style>
+  :root {
+    --black: #0b0b0b;
+    --panel: #151515;
+    --line: #2a2a2a;
+    --green: #00c853;
+    --green-dark: #00a344;
+    --text: #f2f2f2;
+    --muted: #a8a8a8;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--black); color: var(--text); font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif; line-height: 1.5; }
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+  section { padding: 56px 0; scroll-margin-top: 70px; }
+  h1, h2, h3 { line-height: 1.15; margin: 0 0 12px; }
+  h2 { font-size: 30px; }
+
+  .proto { background: var(--green); color: #04210f; text-align: center; font-size: 13px; font-weight: 700; padding: 6px 12px; }
+
+  header { position: sticky; top: 0; z-index: 10; background: rgba(11,11,11,.96); border-bottom: 1px solid var(--line); }
+  .bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 62px; }
+  .brand { font-size: 26px; font-weight: 900; letter-spacing: -.02em; }
+  .brand span { color: var(--green); }
+  nav { display: flex; gap: 22px; }
+  nav a { color: var(--muted); font-weight: 600; font-size: 15px; }
+  nav a:hover { color: var(--text); }
+
+  .btn { display: inline-block; background: var(--green); color: #04210f; font-weight: 800; font-size: 18px; padding: 16px 30px; border-radius: 10px; transition: background .15s, transform .15s; }
+  .btn:hover { background: var(--green-dark); transform: translateY(-2px); }
+  .btn:focus-visible, a:focus-visible, summary:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+
+  /* Hero */
+  #hero { padding: 72px 0 56px; background: linear-gradient(120deg, #0d3a21 0%, #0b0b0b 65%); }
+  #hero h1 { font-size: 50px; letter-spacing: -.02em; max-width: 720px; }
+  #hero h1 span { color: var(--green); }
+  #hero p.lead { color: var(--muted); font-size: 19px; max-width: 560px; margin: 0 0 28px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+  .tags span { border: 1px solid #1f3d2a; background: rgba(0,200,83,.08); color: var(--green); border-radius: 999px; padding: 5px 14px; font-size: 14px; font-weight: 700; }
+  .example { color: var(--muted); font-size: 12px; margin-top: 12px; }
+
+  /* Promos */
+  .promos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 20px; }
+  .promo { background: var(--panel); border: 1px solid #1f3d2a; border-radius: 14px; padding: 24px; }
+  .promo .kicker { display: inline-block; font-size: 12px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--green); border: 1px solid var(--green); border-radius: 999px; padding: 3px 10px; margin-bottom: 14px; }
+  .promo h3 { font-size: 26px; }
+  .promo p { margin: 0; color: var(--muted); font-size: 15px; }
+
+  /* Cómo funciona */
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 20px; padding: 0; list-style: none; counter-reset: s; }
+  .steps li { counter-increment: s; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 24px; }
+  .steps li::before { content: counter(s); display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; background: var(--green); color: #04210f; font-weight: 900; margin-bottom: 12px; }
+  .steps h3 { font-size: 20px; }
+  .steps p { margin: 0; color: var(--muted); font-size: 15px; }
+
+  /* FAQ */
+  .faq { margin-top: 20px; max-width: 760px; }
+  details { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 16px 20px; margin-bottom: 12px; }
+  summary { cursor: pointer; font-weight: 700; font-size: 17px; }
+  details p { color: var(--muted); margin: 12px 0 0; }
+
+  /* Cierre */
+  #cierre { background: linear-gradient(120deg, #0d3a21 0%, #0b0b0b 65%); }
+  .closing { display: grid; grid-template-columns: 1.2fr 1fr; gap: 24px; align-items: center; }
+  .closing h2 { font-size: 38px; }
+  .closing p { color: var(--muted); font-size: 18px; margin: 0 0 24px; max-width: 480px; }
+  .mascot { justify-self: center; width: 100%; max-width: 280px; }
+  .mascot svg { width: 100%; height: auto; }
+
+  footer { border-top: 1px solid var(--line); padding: 30px 0 50px; color: var(--muted); font-size: 14px; }
+  footer .age { display: inline-grid; place-items: center; width: 38px; height: 38px; border: 2px solid var(--muted); border-radius: 50%; font-weight: 800; margin-right: 12px; color: var(--text); }
+
+  @media (max-width: 860px) {
+    .promos, .steps { grid-template-columns: 1fr; }
+    .closing { grid-template-columns: 1fr; }
+    #hero h1 { font-size: 36px; }
+    h2 { font-size: 26px; }
+    .closing h2 { font-size: 30px; }
+    nav { display: none; }
+    .btn { display: block; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<div class="proto">Proyecto académico · BetUni es una marca ficticia · No se realizan apuestas ni pagos reales</div>
+
+<header>
+  <div class="wrap bar">
+    <a href="#hero" class="brand">Bet<span>Uni</span></a>
+    <nav aria-label="Secciones del sitio">
+      <a href="#promociones">Promociones</a>
+      <a href="#como-funciona">Cómo funciona</a>
+      <a href="#preguntas">Preguntas</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section id="hero">
+    <div class="wrap">
+      <h1>Estrena la Champions con <span>$1.000 gratis</span></h1>
+      <p class="lead">BetUni regala un bono de bienvenida a los usuarios nuevos y te explica las condiciones desde el primer día.</p>
+      <!-- CTA principal: abre el formulario externo de Google Forms. -->
+      <a id="cta-principal" class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSePVDcV4wAW6Zf4JJVxRcR93Qy4eZ6qX49Ai9u9VZjIqwJIzw/viewform" target="_blank" rel="noopener">Click aquí para apostar</a>
+      <div class="tags" aria-label="Deportes disponibles">
+        <span>Champions</span><span>Fútbol</span><span>Tenis</span><span>Básquetbol</span><span>eSports</span>
+      </div>
+      <p class="example">Cifras y condiciones de ejemplo, ficticias. Solo mayores de 18 años.</p>
+    </div>
+  </section>
+
+  <section id="promociones">
+    <div class="wrap">
+      <h2>Promociones de lanzamiento</h2>
+      <p style="color:var(--muted);margin:0">Ejemplos ficticios creados para el taller.</p>
+      <div class="promos">
+        <article class="promo">
+          <span class="kicker">Champions</span>
+          <h3>$1.000 gratis</h3>
+          <p>Para apostar en la Champions League. Rollover x175.</p>
+        </article>
+        <article class="promo">
+          <span class="kicker">Usuarios nuevos</span>
+          <h3>Bono x1000</h3>
+          <p>Bono de bienvenida solo para quienes se registran por primera vez.</p>
+        </article>
+        <article class="promo">
+          <span class="kicker">Cashback</span>
+          <h3>75% cashback</h3>
+          <p>Recupera una parte de tus apuestas perdidas.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="como-funciona">
+    <div class="wrap">
+      <h2>Cómo funciona</h2>
+      <ol class="steps">
+        <li><h3>Regístrate</h3><p>Completa el formulario externo con el botón de arriba. Es el único paso.</p></li>
+        <li><h3>Reclama tu bono</h3><p>Tu bono de bienvenida queda asociado a tu cuenta (ejemplo ficticio).</p></li>
+        <li><h3>Elige tu partido</h3><p>Escoge entre Champions, fútbol, tenis, básquetbol o eSports.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="preguntas">
+    <div class="wrap">
+      <h2>Preguntas frecuentes</h2>
+      <div class="faq">
+        <details>
+          <summary>¿Qué significa rollover x175?</summary>
+          <p>Es el número de veces que habría que apostar el valor del bono antes de poder retirar ganancias asociadas a él. Es una condición de ejemplo, ficticia.</p>
+        </details>
+        <details>
+          <summary>¿BetUni es una empresa real?</summary>
+          <p>No. BetUni es una marca inventada para un taller de Marketing Analytics. No ofrece servicios reales ni procesa apuestas o pagos.</p>
+        </details>
+        <details>
+          <summary>¿Quién puede participar?</summary>
+          <p>Solo personas mayores de 18 años. Si fuera un servicio real, también exigiría juego responsable y verificación de identidad.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section id="cierre">
+    <div class="wrap closing">
+      <div>
+        <h2>Shhh… tu bono te espera</h2>
+        <p>Pardo, la mascota de BetUni, guarda el secreto. Tú solo tienes que dar el primer paso.</p>
+        <a class="btn cta-principal" href="https://docs.google.com/forms/d/e/1FAIpQLSePVDcV4wAW6Zf4JJVxRcR93Qy4eZ6qX49Ai9u9VZjIqwJIzw/viewform" target="_blank" rel="noopener">Click aquí para apostar</a>
+      </div>
+      <div class="mascot">
+        <svg viewBox="0 0 200 210" role="img" aria-label="Pardo, mascota de BetUni, un oso pardo de caricatura pidiendo silencio con el dedo en la boca">
+          <circle cx="48" cy="50" r="25" fill="#9c6b3f" stroke="#4a2f1b" stroke-width="3"/>
+          <circle cx="152" cy="50" r="25" fill="#9c6b3f" stroke="#4a2f1b" stroke-width="3"/>
+          <circle cx="48" cy="50" r="12" fill="#d9a77a"/>
+          <circle cx="152" cy="50" r="12" fill="#d9a77a"/>
+          <ellipse cx="100" cy="106" rx="68" ry="62" fill="#9c6b3f" stroke="#4a2f1b" stroke-width="3"/>
+          <ellipse cx="100" cy="128" rx="32" ry="24" fill="#e8c9a0" stroke="#4a2f1b" stroke-width="2.5"/>
+          <circle cx="74" cy="92" r="11" fill="#fff" stroke="#4a2f1b" stroke-width="2.5"/>
+          <circle cx="126" cy="92" r="11" fill="#fff" stroke="#4a2f1b" stroke-width="2.5"/>
+          <circle cx="76" cy="94" r="5" fill="#2b1a0e"/>
+          <circle cx="124" cy="94" r="5" fill="#2b1a0e"/>
+          <path d="M60 76 Q74 68 88 76" fill="none" stroke="#4a2f1b" stroke-width="3" stroke-linecap="round"/>
+          <path d="M112 76 Q126 68 140 76" fill="none" stroke="#4a2f1b" stroke-width="3" stroke-linecap="round"/>
+          <ellipse cx="100" cy="116" rx="10" ry="7" fill="#2b1a0e"/>
+          <line x1="158" y1="206" x2="110" y2="164" stroke="#4a2f1b" stroke-width="30" stroke-linecap="round"/>
+          <line x1="158" y1="206" x2="110" y2="164" stroke="#9c6b3f" stroke-width="24" stroke-linecap="round"/>
+          <circle cx="104" cy="158" r="15" fill="#9c6b3f" stroke="#4a2f1b" stroke-width="3"/>
+          <rect x="96" y="124" width="12" height="38" rx="6" fill="#9c6b3f" stroke="#4a2f1b" stroke-width="3"/>
+          <line x1="97" y1="138" x2="107" y2="138" stroke="#4a2f1b" stroke-width="2"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><span class="age">18+</span>Juega con responsabilidad. El juego puede causar adicción. Solo mayores de 18 años.</p>
+    <p>BetUni es un proyecto académico con fines educativos. La marca, las promociones y las cifras son ficticias y no corresponden a ninguna empresa real.</p>
+  </div>
+</footer>
+
+</body>
+</html>
