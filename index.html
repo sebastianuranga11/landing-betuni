@@ -1,7 +1,14 @@
 <!doctype html>
 <html lang="es">
 <head>
-<!-- GOOGLE ANALYTICS AQUÍ -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PCQCRP3D0L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-PCQCRP3D0L');
+</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>BetUni · Proyecto académico</title>
@@ -215,6 +222,18 @@
     <p>BetUni es un proyecto académico con fines educativos. La marca, las promociones y las cifras son ficticias y no corresponden a ninguna empresa real.</p>
   </div>
 </footer>
+
+<script>
+  // Envía el evento clic_cta_principal cuando el visitante hace clic en el CTA
+  document.querySelectorAll('#cta-principal, .cta-principal').forEach(function (boton) {
+    boton.addEventListener('click', function () {
+      var seccion = boton.closest('section');
+      gtag('event', 'clic_cta_principal', {
+        ubicacion: seccion && seccion.id ? seccion.id : 'sin_seccion'
+      });
+    });
+  });
+</script>
 
 </body>
 </html>
